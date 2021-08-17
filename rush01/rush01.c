@@ -49,6 +49,7 @@ void	ft_tab(int nbr[])
 	int tab[4][4];
 	int i;
 	int j;
+    int counter;
 
     i = 0;
     while (i <= 6)
@@ -58,15 +59,15 @@ void	ft_tab(int nbr[])
         {
             if (ft_verif_line())
                 break;
-            ft_swap(tab[(counter + 1 % 2)+1])
+            ft_swap(tab[(counter + 1 % 2)+1][3]);
             counter++;
             if (ft_verif_line(tab[][]))
                 break;
-            ft_swap()
+            ft_swap();
             counter++;
         }
         ft_swap(tab) //1ere et 3 - i
-        ft_verif_line(tab[][])
+        ft_verif_line(tab[][], lines);
 
         //ft_verif
         // swap entre (counter + 1 % 2)+1 et 3
@@ -137,7 +138,62 @@ void	ft_print_tab(int *tab[][])
 		}
 	}
 }
-void	ft_verif(int *tab[][], int cols[], int lines[])
+int	ft_verif_lines(int *tab[][],int lines[])
 {
-	
+	int i;
+    int j;
+    int max;
+    int views;
+
+    views = 0;
+    i = 0;
+    j = 0;
+    while (i < 4)
+    {
+        max = 0;
+        views = 0;
+        while (j < 4))
+        {
+            if (tab[i][j] > max)
+            {
+                max = tab[i][j];
+                views++;
+            }
+            j++;
+        }
+        if (views != lines[i])
+            return (i);
+        i++;
+    }
+    return (10);
+}
+//prends en parametres le tableau a 2 dimensions
+//renvoie l'indice de la colonne fausse ou 10 si toutes les colones sont justes.
+int ft_verif_cols(int *tab[][], int cols[])
+{
+	int i;
+    int j;
+    int max;
+    int views;
+
+    i = 0;
+    j = 0;
+    while (i < 4)
+    {
+        max = 0;
+        views = 0;
+        while (j < 4))
+        {
+            if (tab[j][i] > max)
+            {
+                max = tab[i][j];
+                views++;
+            }
+            j++;
+        }
+        if (views != cols[i])
+            return (i);
+        i++;
+    }
+    return (10);
 }
